@@ -7,6 +7,7 @@ function ColorCards({ cardList }) {
       {cardList.map((card) => (
         <ColorCard key={card.id} card={card} />
       ))}
+      ]
     </div>
   );
 }

@@ -4,8 +4,11 @@ function ColorCard({ card }) {
   const style = {
     backgroundColor: card.color,
   };
+  const divClickHandler = () => {
+    console.log("clicked");
+  };
   return (
-    <div style={style}>
+    <div style={style} onClick={divClickHandler}>
       <h1>{card.name}</h1>
     </div>
   );
