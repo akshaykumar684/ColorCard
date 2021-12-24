@@ -1,10 +1,13 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 function ColorCard({ card }) {
+  const history = useHistory();
   const style = {
     backgroundColor: card.color,
   };
   const divClickHandler = () => {
+    history.push(`/Resource/${card.id}`);
     console.log("clicked");
   };
   return (
