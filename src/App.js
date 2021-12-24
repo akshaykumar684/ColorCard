@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import ColorCards from "./Component/ColorCards";
+import axiosFetch from "./axios/axios-config";
 const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [cardList, setCardList] = useState(null);
+  useEffect(() => {
+    axiosFetch
+      .get("/unknown")
+      .then((data) => {
+        setCardList(data.data.data);
+        setIsLoading(false);
+        //console.log(data.data.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <React.Fragment>
-      <h1>Hello</h1>
+      {isLoading && <h1>Loading</h1>}
+      {!isLoading && <ColorCards cardList={cardList} />}
     </React.Fragment>
   );
 };
