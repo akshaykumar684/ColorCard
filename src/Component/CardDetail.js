@@ -15,18 +15,26 @@ function CardDetail() {
       })
       .catch((err) => console.log(err));
   }, [card.cardId]);
+
+  let style = {
+    backgroundColor: "red",
+  };
+
   let details = <h1>Loading...</h1>;
   if (!isLoading) {
-    const { name, year, pantone_value } = cardData;
+    const { name, year, pantone_value, color } = cardData;
+    style = {
+      backgroundColor: color,
+    };
     details = (
-      <div>
+      <div style={style}>
         <h1>{name}</h1>
         <h1>{year}</h1>
         <h1>{pantone_value}</h1>
       </div>
     );
   }
-  return <div>{details}</div>;
+  return <div style={style}>{details}</div>;
 }
 
 export default CardDetail;

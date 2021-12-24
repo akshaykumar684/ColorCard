@@ -8,7 +8,6 @@ function ColorCard({ card }) {
   };
   const divClickHandler = () => {
     history.push(`/Resource/${card.id}`);
-    console.log("clicked");
   };
   return (
     <div style={style} onClick={divClickHandler}>
