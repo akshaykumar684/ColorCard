@@ -1,21 +1,19 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-
+import "./ColorCard.css";
 function ColorCard({ card }) {
   const history = useHistory();
   const style = {
-    height: "200px",
-    width: "200px",
     backgroundColor: card.color,
-    "padding-top": "25px",
-    "padding-left": "80px",
   };
   const divClickHandler = () => {
     history.push(`/Resource/${card.id}`);
   };
+  const { name, year } = card;
   return (
-    <div style={style} onClick={divClickHandler}>
-      <h1>{card.name}</h1>
+    <div className="colorCard" style={style} onClick={divClickHandler}>
+      <h1>{name}</h1>
+      <h2>{year}</h2>
     </div>
   );
 }
