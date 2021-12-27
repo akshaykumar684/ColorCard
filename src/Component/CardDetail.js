@@ -24,7 +24,14 @@ function CardDetail() {
   if (!isLoading) {
     const { name, year, pantone_value, color } = cardData;
     style = {
+      position: "fixed",
+      top: "40%",
+      left: "40%",
+      height: "200px",
+      width: "200px",
       backgroundColor: color,
+      "padding-top": "25px",
+      "padding-left": "80px",
     };
     details = (
       <div style={style}>
